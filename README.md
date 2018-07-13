@@ -1,4 +1,4 @@
-容器化金蝶eas
+金蝶eas容器化
 -------------------------------
 
 # 用法
@@ -12,6 +12,16 @@
 
 # 访问web
 http://host_ip:10060
+```
+
+# 关键文件
+
+```
+配置文件
+/usr/eas705s/eas/server/bin/set-server-env.sh
+
+服务启动脚本
+/usr/eas705s/eas/admin/adminserver.sh
 ```
 
 # FAQ
