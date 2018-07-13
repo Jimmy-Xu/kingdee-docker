@@ -1,7 +1,7 @@
 容器化金蝶eas
 -------------------------------
 
-用法:
+# 用法
 
 ```
 # build docker镜像hyperhq/kingdee-server:x86
@@ -12,4 +12,22 @@
 
 # 访问web
 http://host_ip:10060
+```
+
+# FAQ
+
+## 问题1: docker容器根分区缺省10GB，金蝶的文件超过10GB，导致build docker镜像失败
+
+```
+解决：
+dockerd增加dm.basesize参数，指定根分区大小为20GB
+
+步骤：
+1.修改 /usr/lib/systemd/system/docker.service, 在dockerd命令行后增加
+--storage-opt dm.basesize=20G
+
+2.重建/var/lib/docker，并重启docker服务
+$ sudo service docker stop
+$ sudo rm -rf /var/lib/docker
+$ sudo service docker start
 ```
